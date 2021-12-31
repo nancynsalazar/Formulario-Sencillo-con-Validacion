@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Tarea</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Formulario Sencillo con Validación</h1>
+    <form class="container row g-3" name="formulario" method="get">
+        <div class="col-md-6">
+          <label for="inputNombre" class="form-label">Nombre</label>
+          <input type="text" name= "nombre" class="form-control" id="inputNombre" placeholder="Escribe tu nombre aquí...">
+        </div>
+        <div class="col-md-6">
+            <label for="inputApellido" class="form-label">Apellido</label>
+            <input type="text" name = "apellido" class="form-control" id="inputApellido" placeholder="Escribe tu apellido aquí...">
+          </div>
+          <!-- <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity">
+        </div>
+       
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Zip</label>
+          <input type="text" class="form-control" id="inputZip">
+        </div> -->
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sexo" id="flexRadioDefault1">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Hombre
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sexo" id="flexRadioDefault2">
+            <label class="form-check-label" for="flexRadioDefault2">
+              Mujer
+            </label>
+          </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" name = "checkin" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Términos y Condiciones
+            </label>
+          </div>
+        </div>
+        <div class="col-12">
+          <input type="submit" class="btn btn-primary" id="btn" name="btn" value="Enviar">
+        </div>
+      </form>
+
+      <script>
+          (function(){
+              var formulario = document.getElementsByName('formulario')[0];
+              elementos = formulario.elements,
+              boton = document.getElementById('btn');
+
+            var validarNombre = function(e){
+                if (formulario.nombre.value == 0){
+                    alert('Completa el campo Nombre');
+                    e.preventDefault();
+                }
+            };
+              var validar1 = function(e){
+                  validarNombre(e);
+              }
+
+              var validarApellido = function(e){
+                if (formulario.apellido.value == 0){
+                    alert('Completa el campo Apellido');
+                    e.preventDefault();
+                }
+            };
+              var validar2 = function(e){
+                  validarApellido(e);
+              }
+
+
+              var validarRadio = function(e){
+                if(formulario.sexo[0].checked == true || formulario.sexo[1].checked == true){                
+                }else{
+                    alert("Completa el campo de sexo");
+                    e.preventDefault();
+                }
+              };
+
+              var validar3 = function(e){
+                  validarRadio(e);
+              }
+
+              var validarCheck = function(e){
+                if(formulario.checkin.checked == true){                
+                }else{
+                    alert("Completa el check de Términos y Condiciones");
+                    e.preventDefault();
+                }
+              };
+
+              var validar4 = function(e){
+                  validarCheck(e);
+              }
+
+
+              formulario.addEventListener("submit", validar1);
+              formulario.addEventListener("submit", validar2);
+              formulario.addEventListener("submit", validar3);
+              formulario.addEventListener("submit", validar4);
+          }())
+      </script>
+    
+</body>
+</html>
